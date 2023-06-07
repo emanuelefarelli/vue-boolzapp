@@ -23,6 +23,9 @@
 
     <main class="d-flex align-items-center" id="app">
         <div class="my-container d-flex">
+
+            <!-- ---------------- myNav -------------- -->
+
             <div class="myNav">
                 <div class="my-profile">
                     <div class="my-img d-flex align-items-center">
@@ -79,8 +82,44 @@
                     </ul>
                 </div>
             </div>
-            <div class="myChat">
 
+            <!-- ---------------- myChat -------------- -->
+
+            <div class="myChat">
+                <div class="chat-info d-flex justify-content-between align-items-center">
+                    <div class="chat-contact d-flex align-items-center">
+                        <img src="img/avatar_1.jpg" alt="">
+                        <div>
+                            <p class="mb-0 fw-semibold fs-4">
+                                Michele
+                            </p>
+                            <p class="mb-0">
+                                Ultimo accesso il 23/11/1932
+                            </p>
+                        </div>
+                    </div>
+                    <div class="chat-option">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div class="chat-area">
+                    <div class="msg-sended">
+                        Hai portato a spasso il cane?
+                    </div>
+                    <div class="msg-sended">
+                        Ricordati di stendere i panni
+                    </div>
+                    <div class="msg-received">
+                        Tutto fatto!
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" v-model="chatText" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
             </div>
         </div>
     </main>
