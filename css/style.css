@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+ul{
+    padding: 0;
+}
+
 body{
     background: rgb(0,150,136);
     background: linear-gradient(180deg, rgba(0,150,136,1) 24%, rgba(237,237,237,1) 25%);
@@ -13,8 +17,10 @@ main{
     height: 100vh;
 }
 
-div.container{
+div.my-container{
     height: 80vh;
+    width: 70%;
+    margin: 0 auto;
 }
 
 /* ----------------- MY NAV ---------------- */
@@ -22,12 +28,14 @@ div.container{
 div.myNav{
     height: 100%;
     width: 40%;
-    background-color: magenta;
+    background-color: white;
 }
 
 div.myNav>div{
     width: 100%;
 }
+
+/* MY PROFILE */
 
 div.myNav div.my-profile{
     height: 5rem;
@@ -37,14 +45,107 @@ div.myNav div.my-profile{
     background-color: #eaeaea;
 }
 
-div.myNav div.my-profile img{
-    height: 80%;
-    border-radius: 50%;
+div.myNav div.my-profile div.my-img{
+    height: 100%;
     margin-left: 1rem;
 }
 
-div.myNav div.my-profile div.option{
+div.myNav div.my-profile img{
+    height: 80%;
+    border-radius: 50%;
 }
+
+div.myNav div.my-profile div.option{
+    margin-right: 1rem;
+    font-size: 1.6rem;
+}
+
+div.myNav div.my-profile div.option>i{
+    margin-right: 0.5rem;
+    color: #b1b1b1;
+}
+
+/* MY NOTIFICATION */
+
+div.myNav div.my-notification{
+    background-color: #8edafc;
+    height: 5.5rem;
+}
+
+div.myNav div.my-notification div.icon{
+    padding: 1.1rem 0.9rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    background-color: white;
+    color: #8edafc;
+    font-size: 1.6rem;
+}
+
+div.myNav div.my-notification div.icon-text{
+    margin-left: 1rem;
+}
+
+div.myNav div.my-notification div.icon-text p{
+    margin-bottom: 0;
+}
+
+div.myNav div.my-notification div.icon-text a{
+    color: rgb(104, 104, 104);
+}
+
+/* SEARCH */
+
+div.myNav div.search{
+    height: 3.5rem;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.myNav div.search div.search-bar{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 0.3rem 0;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: #b1b1b1;
+    border: solid #cccccc 2px;
+    border-radius: 5px;
+}
+
+div.myNav div.search div.search-bar input{
+    width: 100%;
+    border: none;
+    margin-left: 1.5rem;
+}
+
+/* CONTACT LIST */
+
+div.myNav div.contact-list{
+    height: calc(100% - 5rem - 5.5rem - 3.5rem);
+    overflow-y: auto;
+}
+
+div.myNav div.contact-list li{
+    height: 5.3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    background-color: white;
+    border-top: solid rgb(212, 212, 212) 2px;
+}
+
+div.myNav div.contact-list li img{
+    height: 4rem;
+    border-radius: 50%;
+}
+
 /* ----------------- MY CHAT ---------------- */
 
 div.myChat{

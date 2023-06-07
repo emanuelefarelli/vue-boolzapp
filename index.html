@@ -21,25 +21,62 @@
     <!-- VUE JS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <main class="d-flex align-items-center">
-        <div class="container d-flex">
+    <main class="d-flex align-items-center" id="app">
+        <div class="my-container d-flex">
             <div class="myNav">
                 <div class="my-profile">
-                    <img src="img/avatar_io.jpg" alt="user profile image">
+                    <div class="my-img d-flex align-items-center">
+                        <img src="img/avatar_io.jpg" alt="user profile image">
+                        <span class="fs-4 ms-3">
+                            Sofia
+                        </span>
+                    </div>
                     <div class="option">
                         <i class="fa-solid fa-rotate"></i>
                         <i class="fa-solid fa-message"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
-                <div class="my-notification">
-
+                <div class="my-notification d-flex align-items-center">
+                    <div class="icon d-flex justify-content-center align-items-center">
+                        <i class="fa-regular fa-bell-slash"></i>
+                    </div>
+                    <div class="icon-text">
+                        <p class="fs-5">
+                            Ricevi notifiche di nuovi messaggi
+                        </p>
+                        <a class="fs-6" href="#">
+                            Attiva notifiche desktop
+                        </a>
+                    </div>
                 </div>
                 <div class="search">
-
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass fa-xl fs-5"></i>
+                        <input type="text" name="contactSearch" id="contactSearch" v-model="contactSearch" placeholder="Cerca o inizia una nuova chat" >
+                    </div>
                 </div>
                 <div class="contact-list">
-
+                    <ul>
+                        <li v-for="(element,index) in contacts" class="contact">
+                            <div class="contact-info d-flex align-items-center">
+                                <img :src="element.avatar" />
+                                <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
+                                    <p class="contact-name fs-5 fw-semibold mb-0">
+                                        {{element.name}}
+                                    </p>
+                                    <p class="mb-0 text-secondary">
+                                        Ultimo messaggio inviato
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <p class="mb-0">
+                                    12.00
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="myChat">
