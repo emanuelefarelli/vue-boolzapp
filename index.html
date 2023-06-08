@@ -27,6 +27,8 @@
             <!-- ---------------- myNav -------------- -->
 
             <div class="myNav">
+
+                <!-- MY PROFILE -->
                 <div class="my-profile">
                     <div class="my-img d-flex align-items-center">
                         <img src="img/avatar_io.jpg" alt="user profile image">
@@ -40,6 +42,8 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+                
+                <!-- MY NOTIFICATION -->
                 <div class="my-notification d-flex align-items-center">
                     <div class="icon d-flex justify-content-center align-items-center">
                         <i class="fa-regular fa-bell-slash"></i>
@@ -53,30 +57,54 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- SEARCH -->
                 <div class="search">
                     <div class="search-bar">
                         <i class="fa-solid fa-magnifying-glass fa-xl fs-5"></i>
                         <input type="text" name="contactSearch" id="contactSearch" v-model="contactSearch" placeholder="Cerca o inizia una nuova chat" >
                     </div>
                 </div>
+
+                <!-- CONTACT LIST -->
                 <div class="contact-list">
                     <ul>
-                        <li v-for="(element,index) in contacts" class="contact">
-                            <div class="contact-info d-flex align-items-center">
-                                <img :src="element.avatar" />
-                                <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
-                                    <p class="contact-name fs-5 fw-semibold mb-0">
-                                        {{element.name}}
-                                    </p>
-                                    <p class="mb-0 text-secondary">
-                                        Ultimo messaggio inviato
+                        <li v-for="(element,index) in contacts" class="contact" @click="setActiveIndex(index)">
+                            <div v-if="activeIndex === index" class="selectionArea selected">
+                                <div class="contact-info d-flex align-items-center">
+                                    <img :src="element.avatar" />
+                                    <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
+                                        <p class="contact-name fs-5 fw-semibold mb-0">
+                                            {{element.name}}
+                                        </p>
+                                        <p class="mb-0 text-secondary">
+                                            Ultimo messaggio inviato
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="mb-0">
+                                        12.00
                                     </p>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0">
-                                    12.00
-                                </p>
+                            <div v-else class="selectionArea">
+                                <div class="contact-info d-flex align-items-center">
+                                    <img :src="element.avatar" />
+                                    <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
+                                        <p class="contact-name fs-5 fw-semibold mb-0">
+                                            {{element.name}}
+                                        </p>
+                                        <p class="mb-0 text-secondary">
+                                            Ultimo messaggio inviato
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="mb-0">
+                                        12.00
+                                    </p>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -86,12 +114,14 @@
             <!-- ---------------- myChat -------------- -->
 
             <div class="myChat">
+
+                <!-- CHAT INFO -->
                 <div class="chat-info d-flex justify-content-between align-items-center">
                     <div class="chat-contact d-flex align-items-center">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="contacts[activeIndex].avatar" alt="contactImage  ">
                         <div>
                             <p class="mb-0 fw-semibold fs-4">
-                                Michele
+                                {{contacts[activeIndex].name}}
                             </p>
                             <p class="mb-0">
                                 Ultimo accesso il 23/11/1932
@@ -104,17 +134,23 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+
+                <!-- CHAT AREA -->
                 <div class="chat-area">
-                    <div class="msg-sended">
-                        Hai portato a spasso il cane?
-                    </div>
-                    <div class="msg-sended">
-                        Ricordati di stendere i panni
-                    </div>
-                    <div class="msg-received">
-                        Tutto fatto!
-                    </div>
+                    <ul>
+                        <li v-for="msg in contacts[activeIndex].messages">
+                            <div v-if="msg.status === 'sent'" class="msg-sent">
+                                {{msg.message}}
+                            </div>
+        
+                            <div v-else-if="msg.status === 'received'" class="msg-received">
+                                {{msg.message}}
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+
+                <!-- CHAT INPUT -->
                 <div class="chat-input">
                     <i class="fa-regular fa-face-smile"></i>
                     <input type="text" v-model="chatText" placeholder="Scrivi un messaggio">

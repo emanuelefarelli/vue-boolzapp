@@ -6,6 +6,7 @@
 
 ul{
     padding: 0;
+    list-style-type: none;
 }
 
 body{
@@ -130,7 +131,7 @@ div.myNav div.contact-list{
     overflow-y: scroll;
 }
 
-div.myNav div.contact-list li{
+div.selectionArea{
     height: 5.3rem;
     width: 100%;
     display: flex;
@@ -139,6 +140,10 @@ div.myNav div.contact-list li{
     padding: 1rem 1rem;
     background-color: white;
     border-top: solid rgb(212, 212, 212) 2px;
+}
+
+div.selectionArea.selected{
+    background-color: rgb(228, 228, 228);
 }
 
 div.myNav div.contact-list li img{
@@ -185,14 +190,17 @@ div.myChat div.chat-info div.chat-contact>div{
 
 div.myChat div.chat-area{
     height: calc(100% - 10rem);
-    background-image: url(../img/mine.jpg);
     padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
+    background-image: url(../img/mine.jpg);
     overflow-y: scroll;
 }
 
-div.myChat div.chat-area div.msg-sended,
+div.myChat div.chat-area ul li{
+    display: flex;
+    flex-direction: column;
+}
+
+div.myChat div.chat-area div.msg-sent,
 div.myChat div.chat-area div.msg-received{
     font-size: 1.2rem;
     font-weight: 400;
@@ -205,7 +213,7 @@ div.myChat div.chat-area div.msg-received{
     align-items: center;
 }
 
-div.myChat div.chat-area div.msg-sended{  
+div.myChat div.chat-area div.msg-sent{  
     background-color: #d5f9ba;
     align-self: flex-end;
 }
