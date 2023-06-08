@@ -176,6 +176,29 @@ createApp({
         // document.querySelector('div.contact-list li.contact').classList.remove('selected');
         this.activeIndex = index;
         console.log("activeindex: ",this.activeIndex,"index: ",index);
+    },
+
+    sendMessage(msgContent){
+        const newMessage = {
+            date: '10/01/2020 15:50:00',
+            message: msgContent,
+            status: 'sent'
+        }
+
+        const messageList = this.contacts[this.activeIndex].messages; 
+        messageList.push(newMessage);
+        this.chatText = '';
+
+        setTimeout(ChatGptAnswer, 1000, messageList)
+
+        function ChatGptAnswer(array){
+            const aiMessage = {
+                date: '10/01/2020 15:50:00',
+                message: "Ok",
+                status: 'received'
+            }
+            array.push(aiMessage);
+        }
     }
   }
 }).mount('#app');
