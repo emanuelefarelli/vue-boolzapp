@@ -70,7 +70,7 @@
                 <div class="contact-list">
                     <ul>
                         <li v-for="(element,index) in contacts" class="contact" @click="setActiveIndex(index)">
-                            <div v-if="activeIndex === index" class="selectionArea selected">
+                            <div class="selectionArea" :class="(index === activeIndex) ? 'selected' : ''">
                                 <div class="contact-info d-flex align-items-center">
                                     <img :src="element.avatar" />
                                     <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
@@ -88,7 +88,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div v-else class="selectionArea">
+                            <!-- <div v-else class="selectionArea">
                                 <div class="contact-info d-flex align-items-center">
                                     <img :src="element.avatar" />
                                     <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
@@ -105,7 +105,7 @@
                                         12.00
                                     </p>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                     </ul>
                 </div>

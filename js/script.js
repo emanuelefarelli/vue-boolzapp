@@ -172,10 +172,7 @@ createApp({
   },
   methods: {
     setActiveIndex(index){
-        console.log("activeindex: ",this.activeIndex,"index: ",index);
-        // document.querySelector('div.contact-list li.contact').classList.remove('selected');
         this.activeIndex = index;
-        console.log("activeindex: ",this.activeIndex,"index: ",index);
     },
 
     sendMessage(msgContent){
