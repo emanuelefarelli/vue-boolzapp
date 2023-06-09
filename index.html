@@ -88,24 +88,6 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- <div v-else class="selectionArea">
-                                <div class="contact-info d-flex align-items-center">
-                                    <img :src="element.avatar" />
-                                    <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
-                                        <p class="contact-name fs-5 fw-semibold mb-0">
-                                            {{element.name}}
-                                        </p>
-                                        <p class="mb-0 text-secondary">
-                                            Ultimo messaggio inviato
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <p class="mb-0">
-                                        12.00
-                                    </p>
-                                </div>
-                            </div> -->
                         </li>
                     </ul>
                 </div>
@@ -139,11 +121,7 @@
                 <div class="chat-area">
                     <ul>
                         <li v-for="msg in contacts[activeIndex].messages">
-                            <div v-if="msg.status === 'sent'" class="msg-sent">
-                                {{msg.message}}
-                            </div>
-        
-                            <div v-else-if="msg.status === 'received'" class="msg-received">
+                            <div :class="(msg.status === 'sent') ? 'msg-sent' : 'msg-received'">
                                 {{msg.message}}
                             </div>
                         </li>
