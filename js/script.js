@@ -168,6 +168,7 @@ createApp({
         ],
 
         activeIndex: 0,
+        searchInput: '',
     }
   },
   methods: {
@@ -195,6 +196,22 @@ createApp({
                 status: 'received'
             }
             array.push(aiMessage);
+        }
+    },
+
+    setSearchInput(input){
+        this.searchInput = input;
+    },
+
+    searchElement(element){
+        console.log(this.searchInput);
+        if(this.searchInput === '' ){
+            return true;
+        }else{
+            if(element.name.toLowerCase().includes(this.searchInput.toLowerCase())){
+                return true;
+            }
+            return false;
         }
     }
   }

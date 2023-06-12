@@ -62,7 +62,7 @@
                 <div class="search">
                     <div class="search-bar">
                         <i class="fa-solid fa-magnifying-glass fa-xl fs-5"></i>
-                        <input type="text" name="contactSearch" id="contactSearch" v-model="contactSearch" placeholder="Cerca o inizia una nuova chat" >
+                        <input type="text" name="contactSearch" id="contactSearch" v-model="contactSearch" placeholder="Cerca o inizia una nuova chat" @keyup.enter="setSearchInput(contactSearch)" >
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
                 <div class="contact-list">
                     <ul>
                         <li v-for="(element,index) in contacts" class="contact" @click="setActiveIndex(index)">
-                            <div class="selectionArea" :class="(index === activeIndex) ? 'selected' : ''">
+                            <div v-if="searchElement(element)" class="selectionArea" :class="(index === activeIndex) ? 'selected' : ''">
                                 <div class="contact-info d-flex align-items-center">
                                     <img :src="element.avatar" />
                                     <div class="contact-text d-flex flex-column justify-content-center h-100 ms-3">
@@ -78,7 +78,7 @@
                                             {{element.name}}
                                         </p>
                                         <p class="mb-0 text-secondary">
-                                            Ultimo messaggio inviato
+                                            {{element.messages[element.messages.length - 1].message}}
                                         </p>
                                     </div>
                                 </div>
