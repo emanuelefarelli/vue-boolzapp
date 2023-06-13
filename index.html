@@ -62,7 +62,7 @@
                 <div class="search">
                     <div class="search-bar">
                         <i class="fa-solid fa-magnifying-glass fa-xl fs-5"></i>
-                        <input type="text" name="contactSearch" id="contactSearch" v-model="contactSearch" placeholder="Cerca o inizia una nuova chat" @keyup.enter="setSearchInput(contactSearch)" >
+                        <input type="text" name="contactSearch" id="contactSearch" v-model="searchInput" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                 <!-- CHAT INFO -->
                 <div class="chat-info d-flex justify-content-between align-items-center">
                     <div class="chat-contact d-flex align-items-center">
-                        <img :src="contacts[activeIndex].avatar" alt="contactImage  ">
+                        <img :src="contacts[activeIndex].avatar" alt="contactImage">
                         <div>
                             <p class="mb-0 fw-semibold fs-4">
                                 {{contacts[activeIndex].name}}
@@ -121,9 +121,9 @@
                 <div class="chat-area">
                     <ul>
                         <li v-for="msg in contacts[activeIndex].messages">
-                            <div :class="(msg.status === 'sent') ? 'msg-sent' : 'msg-received'">
+                            <a :class="(msg.status === 'sent') ? 'msg-sent' : 'msg-received'">
                                 {{msg.message}}
-                            </div>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -203,8 +203,8 @@ div.myChat div.chat-area ul li{
     flex-direction: column;
 }
 
-div.myChat div.chat-area div.msg-sent,
-div.myChat div.chat-area div.msg-received{
+div.myChat div.chat-area a.msg-sent,
+div.myChat div.chat-area a.msg-received{
     font-size: 1.2rem;
     font-weight: 400;
     margin-top: 1rem;
@@ -214,14 +214,16 @@ div.myChat div.chat-area div.msg-received{
     border-radius: 10px;
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
-div.myChat div.chat-area div.msg-sent{  
+div.myChat div.chat-area a.msg-sent{  
     background-color: #d5f9ba;
     align-self: flex-end;
 }
 
-div.myChat div.chat-area div.msg-received{
+div.myChat div.chat-area a.msg-received{
     background-color: white;
     align-self: flex-start;
 }
